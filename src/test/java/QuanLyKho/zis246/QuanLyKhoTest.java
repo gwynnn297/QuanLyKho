@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
 import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +18,7 @@ public class QuanLyKhoTest {
         quanLyKho.setVisible(true);
     }
     @Test
-    public void testButtonSuaActionPerformed() {
+    public void testButtonSua() {
 
         // Thiết lập dữ liệu và mô hình cho bảng
         Object[][] data = {

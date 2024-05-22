@@ -8,7 +8,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class QuanLyKhoTest {
 
     public QuanLyKho quanLyKho;

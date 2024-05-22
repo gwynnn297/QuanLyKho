@@ -12,11 +12,35 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class QuanLyKhoTest {
 
     public QuanLyKho quanLyKho;
+
     @BeforeEach
     public void setUp() {
         quanLyKho = new QuanLyKho();
         quanLyKho.setVisible(true);
     }
+
+
+    @Test
+    public void testButtonThem() {
+        // Thiết lập dữ liệu đầu vào
+        quanLyKho.tenSP.setText("Sản phẩm 1");
+        quanLyKho.danhMucSP.setSelectedItem("Sản phẩm loại 1");
+        quanLyKho.giaSP.setText("10.5");
+        quanLyKho.moTaSanPham.setText("Mô tả 1");
+
+        // Mô phỏng sự kiện nhấn nút
+        quanLyKho.buttonThemActionPerformed(null);
+
+        // Lấy mô hình bảng và kiểm tra dữ liệu
+        DefaultTableModel model = (DefaultTableModel) quanLyKho.jTable1.getModel();
+        assertEquals("1", model.getValueAt(0, 0).toString()); // STT
+        assertEquals("Sản phẩm 1", model.getValueAt(0, 1)); // TÊN
+        assertEquals("Sản phẩm loại 1", model.getValueAt(0, 2)); // DANH MỤC
+        assertEquals("10.5", model.getValueAt(0, 3).toString()); // GIÁ
+        assertEquals("Mô tả 1", model.getValueAt(0, 4)); // MÔ TẢ
+    }
+
+
     @Test
     public void testButtonSua() {
 
@@ -82,31 +106,6 @@ public class QuanLyKhoTest {
         // Dọn dẹp
         testFrame.dispose();
     }
-
-    @Test
-    public void testButtonThem() {
-        // Thiết lập dữ liệu đầu vào
-        quanLyKho.tenSP.setText("Sản phẩm 1");
-        quanLyKho.danhMucSP.setSelectedItem("Sản phẩm loại 1");
-        quanLyKho.giaSP.setText("10.5");
-        quanLyKho.moTaSanPham.setText("Mô tả 1");
-
-        // Mô phỏng sự kiện nhấn nút
-        quanLyKho.buttonThemActionPerformed(null);
-
-        // Lấy mô hình bảng và kiểm tra dữ liệu
-        DefaultTableModel model = (DefaultTableModel) quanLyKho.jTable1.getModel();
-        assertEquals("1", model.getValueAt(0, 0).toString()); // STT
-        assertEquals("Sản phẩm 1", model.getValueAt(0, 1)); // TÊN
-        assertEquals("Sản phẩm loại 1", model.getValueAt(0, 2)); // DANH MỤC
-        assertEquals("10.5", model.getValueAt(0, 3).toString()); // GIÁ
-        assertEquals("Mô tả 1", model.getValueAt(0, 4)); // MÔ TẢ
-    }
-
-
-
-
-
 
 
     @Test
